@@ -1,0 +1,18 @@
+{
+  "name": "petition-template",
+  "version": "0.0.1",
+  "description": "Petition Template",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Mozilla",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "habitat": "3.1.2",
+    "hapi": "8.6.1",
+    "good": "6.1.4",
+    "good-console": "5.0.2",
+    "request": "2.60.0"
+  }
+}
