@@ -14,5 +14,8 @@
     "good": "6.1.4",
     "good-console": "5.0.2",
     "request": "2.60.0"
+  },
+  "engines": {
+    "node": "^4.0.0"
   }
 }
