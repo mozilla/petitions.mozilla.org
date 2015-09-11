@@ -23,7 +23,7 @@ server.route([
      }
   }, {
     method: 'POST',
-    path: '/signup',
+    path: '/api/signup',
     handler: function(request, reply) {
       var payload = request.payload || {};
       var mailingList = !!payload['signup-mailing'];
