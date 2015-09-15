@@ -55,8 +55,7 @@ server.route([
         if (err) {
           return console.error('signature failed:', err);
         }
-        // Moco to supply this.
-        reply.redirect("/");
+        reply.redirect("/thank-you.html");
       });
     }
   }
