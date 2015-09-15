@@ -39,9 +39,6 @@
 
             <h2>Thank You 2 placeholder</h2>
           </div>
-          <div id="white-box" style="display: none;">
-            <h3>Signup confirmation placeholder</h3>
-          </div>
         </div>
       </main>
 
@@ -85,33 +82,5 @@
       </footer>
     </div>
   </div><br>
-
-  <div id="signupfooter">
-    <script>
-      (function(){
-        var queryString = decodeURIComponent(window.location.search);
-        var firstname = "";
-        var lastname = "";
-        var signup = "";
-
-        var firstname_re = /firstname=(\w+)/;
-        var lastname_re = /lastname=([\w\.]+)/;
-        var signup_re = /signup=(\w+)/;
-
-        if (firstname_re.test(queryString)) {
-          firstname = queryString.match(firstname_re)[1];
-        }
-        if (lastname_re.test(queryString)) {
-          lastname = queryString.match(lastname_re)[1];
-        }
-        if (signup_re.test(queryString)) {
-          signup = queryString.match(signup_re)[1];
-          if (signup === "true") {
-            document.querySelector("#white-box").style = "display: block;";
-          }
-        }
-      })();
-    </script>
-  </div>
 </body>
 </html>

@@ -55,7 +55,7 @@ server.route([
         if (err) {
           return console.error('signature failed:', err);
         }
-        reply.redirect("/thank-you.html?firstname=" + payload.firstname + "&lastname=" + payload.lastname + "&signup=" + mailingList);
+        reply.redirect("/thank-you.html");
       });
     }
   }
