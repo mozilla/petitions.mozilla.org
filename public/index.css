@@ -596,6 +596,7 @@
   /* ========================================
   *  Thank You Page (Mailing List Signup & Socail Share)
   */
+
 .share-page .container {
   margin: 0px auto;
   width: 420px;
@@ -608,6 +609,16 @@
   width: 620px;
   margin: 0 auto;
   padding: 30px 0;
+}
+@media screen and (max-width: 768px) {
+  .share-page h2 {
+    width: 100%;
+    font-size: 25px;
+    padding: 30px 25px;
+  }
+  .share-page .container {
+    width: 100%;
+  }
 }
 
  .share-page #facebook,
