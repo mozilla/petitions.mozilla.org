@@ -133,7 +133,7 @@
   .divider {
     width: 100%;
     height: .5rem;
-    background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/img/thin-stripe.png) repeat-x;
+    background: url(/img/thin-stripe.png) repeat-x;
     margin: 4rem 0;
   }
   .row {
@@ -202,7 +202,7 @@
       content: "";
       position: absolute;
       height: .5rem;
-      background: url(https://sendto.mozilla.org/page/-/protect-net-neutrality/img/thin-stripe.png) repeat-x;
+      background: url(/img/thin-stripe.png) repeat-x;
       top: 50%;
       width: 100%;
     }
