@@ -75,8 +75,8 @@
                           Country
                         </option>
 
-                        <option value="US">
-                          United States
+                        <option value="DE" selected>
+                          Germany
                         </option>
 
                         <option value="AF">
@@ -959,6 +959,10 @@
                           United Kingdom
                         </option>
 
+                        <option value="US">
+                          United States
+                        </option>
+
                         <option value="UY">
                           Uruguay
                         </option>
@@ -1134,6 +1138,17 @@
         $theForm.parsley().subscribe('parsley:field:validated', function (fieldInstance) {
           toggleOneLineError();
         });
+
+        var countrySelect = document.querySelector('#country');
+        function countryChanged() {
+          if (countrySelect.value) {
+            countrySelect.classList.add('normal-text-color');
+          } else {
+            countrySelect.classList.remove('normal-text-color');
+          }
+        }
+        countryChanged();
+        document.querySelector('#country').addEventListener('change', countryChanged);
       })();
     </script>
   </div>

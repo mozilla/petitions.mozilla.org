@@ -399,6 +399,9 @@
     line-height: 1;
     color: #58585b;
   }
+  .beautified-form .normal-text-color {
+    color: #58585B;
+  }
   .beautified-form input[readonly] {
     pointer-events: none;
     width: 100%;
