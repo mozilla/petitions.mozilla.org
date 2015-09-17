@@ -158,17 +158,11 @@
   /* ========================================
   *  Mozilla Header
   */
-  #header-logo {
-    display: block;
-    padding-top: 5rem;
+  .mozilla-wordmark {
+    margin-top: 44px;
   }
-  #header-logo .mozilla-wordmark {
-    display: none;
-  }
-  @media screen and (min-width: 990px) {
-    #header-logo .mozilla-wordmark {
-      display: block;
-    }
+  .center {
+    text-align: center;
   }
   /* ========================================
   *  Countdown
