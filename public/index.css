@@ -538,11 +538,22 @@
   .beautified-form #one-line-error {
     color: #c13931;
   }
+  .beautified-form #country-required-error,
+  .beautified-form #one-line-error {
+    margin-bottom: 1.5rem;
+  }
+  .beautified-form #one-line-error,
+  .beautified-form .parsley-errors-list {
+    font-size: 1.2rem;
+  }
   .beautified-form .parsley-errors-list {
     list-style-type: none;
     padding-left: 0;
+    margin: 0;
     display: none;
   }
+  .beautified-form #email-invalid-error .parsley-errors-list,
+  .beautified-form #country-required-error .parsley-errors-list,
   .beautified-form #legal-confirm-error .parsley-errors-list {
     display: block;
   }

@@ -45,22 +45,28 @@
                 <fieldset>
                   <div class="row">
                     <div class="field-container half">
-                      <i class="fa fa-user field-icon"></i> <input autocomplete="off" data-parsley-trigger="change" name="firstname" placeholder="First Name" required="" spellcheck="false" type=
+                      <i class="fa fa-user field-icon"></i> <input class="one-line" autocomplete="off" data-parsley-trigger="change" name="firstname" placeholder="First Name" required="" spellcheck="false" type=
                       "text">
                     </div>
 
                     <div class="field-container half">
-                      <input autocomplete="off" class="less-indented" data-parsley-trigger="change" name="lastname" placeholder="Last Name" required="" spellcheck="false" type="text">
+                      <input class="one-line" autocomplete="off" class="less-indented" data-parsley-trigger="change" name="lastname" placeholder="Last Name" required="" spellcheck="false" type="text">
                     </div>
                   </div>
                 </fieldset>
+
+                <div>
+                  <div class="full" id="one-line-error">
+                    <span>Oops, please complete fields highlighted in red.</span>
+                  </div>
+                </div>
 
                 <fieldset>
 
                   <div class="row">
                     <div class="field-container full">
                       <i class="fa fa-map-marker field-icon"></i>
-                      <select placeholder="Country" id="country" required name="country">
+                      <select placeholder="Country" id="country" data-parsley-error-message="Country is required." data-parsley-errors-container="#country-required-error" required name="country">
                         <option value="">
                           Country
                         </option>
@@ -993,24 +999,20 @@
                           Zimbabwe
                         </option>
                       </select>
+                      <div id="country-required-error"></div>
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="field-container full">
                       <div>
-                        <i class="fa fa-envelope field-icon"></i> <input autocomplete="off" data-parsley-trigger="change" name="email" placeholder="E-mail" required="" spellcheck=
+                        <i class="fa fa-envelope field-icon"></i> <input autocomplete="off" data-parsley-error-message="Your email address is invalid." data-parsley-errors-container="#email-invalid-error" data-parsley-trigger="change" name="email" placeholder="E-mail" required="" spellcheck=
                         "false" type="email">
                       </div>
+                      <div id="email-invalid-error"></div>
                     </div>
                   </div>
                 </fieldset>
-
-                <div>
-                  <div class="full" id="one-line-error">
-                    <p>Oops, please complete fields highlighted in red.</p>
-                  </div>
-                </div>
 
                 <fieldset class="legal-confirm">
                   <div class="row">
@@ -1117,7 +1119,7 @@
 
 
         var toggleOneLineError = function() {
-          var numErrors = $(".parsley-error").length;
+          var numErrors = $(".parsley-error.one-line").length;
           if ( numErrors > 0 ) {
             $("#one-line-error").show();
           } else {
