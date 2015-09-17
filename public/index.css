@@ -260,6 +260,19 @@
   #header {
     text-align: center;
   }
+  .headerH1 {
+    font-size: 3.3rem;
+  }
+
+  .headerH3 {
+    font-size: 2rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .headerH1 {
+      font-size: 4.3rem;
+    }
+  }
   /* ========================================
   *  Letter and Form
   */
