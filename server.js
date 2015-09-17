@@ -55,7 +55,7 @@ server.route([
         if (err) {
           return console.error('signature failed:', err);
         }
-        reply.redirect("/data-retention/thank-you.html");
+        reply.redirect("/data-retention/thank-you/");
       });
     }
   }
