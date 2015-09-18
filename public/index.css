@@ -160,6 +160,7 @@
   */
   .mozilla-wordmark {
     margin-top: 44px;
+    width: 120px;
   }
   .center {
     text-align: center;
@@ -616,6 +617,7 @@
   width: 620px;
   margin: 0 auto;
   padding: 30px 0;
+  text-align: center;
 }
 @media screen and (max-width: 768px) {
   .share-page h2 {
@@ -637,6 +639,7 @@
   color: #ffffff;
   display: block;
   padding: 20px;
+  margin-top: 10px;
 }
 .share-page #facebook,
 .share-page #twitter {
