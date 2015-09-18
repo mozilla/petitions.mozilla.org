@@ -59,7 +59,7 @@
 
                 <div>
                   <div class="full" id="one-line-error">
-                    <span>Oops, please complete fields highlighted in red.</span>
+                    <span>Bitte füllen Sie die rot markierten Felder aus.</span>
                   </div>
                 </div>
 
@@ -68,9 +68,9 @@
                   <div class="row">
                     <div class="field-container full">
                       <i class="fa fa-map-marker field-icon"></i>
-                      <select placeholder="Country" id="country" data-parsley-error-message="Country is required." data-parsley-errors-container="#country-required-error" required name="country">
-                        <option value="">
-                          Country
+                      <select placeholder="Land" id="country" data-parsley-error-message="Bitte wählen Sie ein Land aus." data-parsley-errors-container="#country-required-error" required name="country">
+                        <option value="" disabled="">
+                          Land
                         </option>
 
                         <option value="DE" selected>
@@ -1012,7 +1012,7 @@
                   <div class="row">
                     <div class="field-container full">
                       <div>
-                        <i class="fa fa-envelope field-icon"></i> <input autocomplete="off" data-parsley-error-message="Your email address is invalid." data-parsley-errors-container="#email-invalid-error" data-parsley-trigger="change" name="email" placeholder="E-mail" required="" spellcheck=
+                        <i class="fa fa-envelope field-icon"></i> <input autocomplete="off" data-parsley-error-message="Überprüfen Sie bitte, ob Sie eine gültige E-Mail-Adresse eingetragen haben." data-parsley-errors-container="#email-invalid-error" data-parsley-trigger="change" name="email" placeholder="E-mail" required="" spellcheck=
                         "false" type="email">
                       </div>
                       <div id="email-invalid-error"></div>
@@ -1024,7 +1024,7 @@
                   <div class="row">
                     <div class="field-container full">
                       <div class="checkbox-container">
-                        <input data-parsley-error-message="To submit this form you must agree with our privacy policy." data-parsley-errors-container="#legal-confirm-error" data-parsley-trigger=
+                        <input data-parsley-error-message="Sie müssen unsere Datenschutzerklärung anerkennen, bevor Sie das Formular abschicken." data-parsley-errors-container="#legal-confirm-error" data-parsley-trigger=
                         "change" id="privacy-checkbox" name="privacy-checkbox" required="" type="checkbox" value="1">
                       </div>
 
@@ -1054,7 +1054,7 @@
                 </fieldset>
 
                 <div>
-                  <button class="btn" type="submit">Send now <i class="fa fa-angle-double-right"></i></button>
+                  <button class="btn" type="submit">Jetzt unterschreiben</button>
                 </div>
               </form>
             </div>
