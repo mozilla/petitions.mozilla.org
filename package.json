@@ -4,15 +4,18 @@
   "description": "Petition Template",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "cssprefix": "postcss --use autoprefixer -c browserListCSS.json public/index.css -d public/"
   },
   "author": "Mozilla",
   "license": "MPL-2.0",
   "dependencies": {
-    "habitat": "3.1.2",
-    "hapi": "8.6.1",
+    "autoprefixer": "^6.0.3",
     "good": "6.1.4",
     "good-console": "5.0.2",
+    "habitat": "3.1.2",
+    "hapi": "8.6.1",
+    "postcss": "^5.0.6",
     "request": "2.60.0"
   },
   "engines": {
