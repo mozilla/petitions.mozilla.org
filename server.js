@@ -4,7 +4,7 @@ var Countries = require('country-data').countries.all.map( c => c.alpha2 );
 var Good = require('good');
 var Hapi = require('hapi');
 var Hoek = require('hoek');
-var Joi = require('Joi');
+var Joi = require('joi');
 var Path = require('path');
 var Signup = require('./lib/signup')(process.env.BASKET_HOST);
 
