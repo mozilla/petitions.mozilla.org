@@ -22,6 +22,12 @@ server.route([
        }
      }
   }, {
+    method: 'GET',
+    path: '/',
+    handler: function(request, reply) {
+      reply.redirect('/data-retention/');
+    }
+  }, {
     method: 'POST',
     path: '/api/signup',
     handler: function(request, reply) {
