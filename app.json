@@ -2,6 +2,10 @@
   "name": "petitions.mozilla.org",
   "description": "Petitions for Mozilla Advocacy",
   "scripts": {},
-  "env": {},
+  "env": {
+    "BASKET_HOST": {
+      "required": true
+    }
+  },
   "addons": []
 }
