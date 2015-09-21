@@ -67,6 +67,15 @@ server.route([
   }
 ]);
 
+// This will catch all 404s and redirect them to root URL
+// with preserving the pathname for client-side to handle.
+server.ext('onPreResponse', function(request, reply) {
+  if(request.response.output && [403, 404].indexOf(request.response.output.statusCode) >= 0) {
+    return reply.redirect('/data-retention');
+  }
+  return reply.continue();
+});
+
 server.register({
   register: Good,
   options: {
