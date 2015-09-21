@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Petition</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta property="og:title" content="Informationen über meine Telefongespräche speichern? Das ist nicht in Ordnung!" />
   <meta property="og:site_name" content="Mozilla" />
@@ -1157,16 +1157,16 @@
           toggleOneLineError();
         });
 
-        var countrySelect = document.querySelector('#country');
+        var countrySelect = $('#country');
         function countryChanged() {
           if (countrySelect.value) {
-            countrySelect.classList.add('normal-text-color');
+            countrySelect.addClass('normal-text-color');
           } else {
-            countrySelect.classList.remove('normal-text-color');
+            countrySelect.removeClass('normal-text-color');
           }
         }
         countryChanged();
-        document.querySelector('#country').addEventListener('change', countryChanged);
+        $('#country').change(countryChanged);
       })();
     </script>
   </div>
