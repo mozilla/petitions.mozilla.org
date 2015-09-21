@@ -1,4 +1,4 @@
 # Petitions for Mozilla Advocacy
 
-#### Staging Server
-[petitions.mofostaging.net](https://petitions.mofostaging.net)
+- [Staging](https://petitions.mofostaging.net)
+- [Production](https://petitions.mozilla.org)

@@ -1,10 +1,14 @@
 require('habitat').load();
-var Path = require('path');
 
-var Hapi = require('hapi');
+var Countries = require('country-data').countries.all.map( c => c.alpha2 );
 var Good = require('good');
+var Hapi = require('hapi');
+var Hoek = require('hoek');
+var Joi = require('Joi');
+var Path = require('path');
+var Signup = require('./lib/signup')(process.env.BASKET_HOST);
 
-var httpRequest = require('request');
+Hoek.assert(process.env.BASKET_HOST, 'You must define BASKET_HOST in config');
 
 var server = new Hapi.Server();
 server.connection({
@@ -12,85 +16,76 @@ server.connection({
   port: process.env.PORT
 });
 
-server.route([
+var campaigns = Object.keys(require('./lib/campaigns'));
+
+server.register([
   {
-     method: 'GET',
-     path: '/{params*}',
-     handler: {
-       directory: {
-         path: Path.join(__dirname, 'public')
-       }
-     }
-  }, {
-    method: 'GET',
-    path: '/',
-    handler: function(request, reply) {
-      reply.redirect('/data-retention/');
+    register: Good,
+    options: {
+      reporters: [{
+        reporter: require('good-console'),
+        events: {
+          response: '*',
+          log: '*'
+        }
+      }]
     }
-  }, {
-    method: 'POST',
-    path: '/api/signup',
-    handler: function(request, reply) {
-      var payload = request.payload || {};
-      var mailingList = !!payload['signup-mailing'];
-      if (mailingList) {
-        httpRequest({
-          url: 'https://sendto.mozilla.org/page/signup/EOYFR2014-donor',
-          method: "POST",
-          form: {
-            'opt_in': '1',
-            email: payload.email
+  },
+  require('inert')
+], function (registrationError) {
+  Hoek.assert(!registrationError, registrationError);
+
+  server.route([
+    {
+      method: 'GET',
+      path: '/{params*}',
+      handler: {
+        directory: {
+          path: Path.join(__dirname, 'public')
+        }
+      }
+    }, {
+      method: 'GET',
+      path: '/',
+      handler: function(request, reply) {
+        reply.redirect('/data-retention/');
+      }
+    }, {
+      method: 'POST',
+      path: '/api/signup',
+      config: {
+        validate: {
+          payload: {
+            petition: Joi.string().equal(campaigns),
+            firstname: Joi.string(),
+            lastname: Joi.string(),
+            country: Joi.string().equal(Countries),
+            email: Joi.string().email(),
+            'privacy-checkbox': Joi.boolean(),
+            'signup-mailing': Joi.boolean().default(false)
           }
-        }, function(err, httpResponse, body) {
-          if (err) {
-            return console.error('signup failed:', err);
+        }
+      },
+      handler: function(request, reply) {
+        Signup(request.payload, function(signupError) {
+          if (signupError) {
+            return reply(Boom.wrap(signupError, 500, 'Unable to signup'));
           }
+
+          reply.redirect('/data-retention/thank-you/');
         });
       }
-      httpRequest({
-        url: 'https://sendto.mozilla.org/page/s/test-signup',
-        method: "POST",
-        form: {
-          firstname: payload.firstname,
-          lastname: payload.lastname,
-          country: payload.country,
-          email: payload.email,
-          'custom-3586': payload['privacy-checkbox']
-        }
-      }, function(err, httpResponse, body) {
-        if (err) {
-          return console.error('signature failed:', err);
-        }
-        reply.redirect("/data-retention/thank-you/");
-      });
     }
-  }
-]);
+  ]);
 
-// This will catch all 404s and redirect them to root URL
-// with preserving the pathname for client-side to handle.
-server.ext('onPreResponse', function(request, reply) {
-  if(request.response.output && [403, 404].indexOf(request.response.output.statusCode) >= 0) {
-    return reply.redirect('/data-retention');
-  }
-  return reply.continue();
-});
-
-server.register({
-  register: Good,
-  options: {
-    reporters: [{
-      reporter: require('good-console'),
-      events: {
-        response: '*',
-        log: '*'
-      }
-    }]
-  }
-}, function (err) {
-  if (err) {
-    throw err;
-  }
+  // This will catch all 404s and redirect them to root URL
+  // with preserving the pathname for client-side to handle.
+  server.ext('onPreResponse', function(request, reply) {
+    if (request.response.output && [403, 404].indexOf(request.response.output.statusCode) >= 0) {
+      return reply.redirect('/data-retention/');
+    }
+    return reply.continue();
+  });
 
   server.start(function () {
     server.log('info', 'Server running at: ' + server.info.uri);

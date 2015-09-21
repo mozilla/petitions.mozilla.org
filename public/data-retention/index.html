@@ -44,6 +44,7 @@
               </div>
 
               <form action="/api/signup" class="beautified-form" id="petition-signup-form" method="post" name="signup">
+                <input type="hidden" name="petition" value="data-retention">
                 <fieldset>
                   <div class="row">
                     <div class="field-container half">
@@ -1025,7 +1026,7 @@
                     <div class="field-container full">
                       <div class="checkbox-container">
                         <input data-parsley-error-message="Sie müssen unsere Datenschutzerklärung anerkennen, bevor Sie das Formular abschicken." data-parsley-errors-container="#legal-confirm-error" data-parsley-trigger=
-                        "change" id="privacy-checkbox" name="privacy-checkbox" required="" type="checkbox" value="1">
+                        "change" id="privacy-checkbox" name="privacy-checkbox" required="" type="checkbox" value="true">
                       </div>
 
                       <div class="label-container">
@@ -1042,7 +1043,7 @@
                   <div class="row">
                     <div class="field-container full">
                       <div class="checkbox-container">
-                        <input id="signup-mailing" name="signup-mailing" type="checkbox" value="1">
+                        <input id="signup-mailing" name="signup-mailing" type="checkbox" value="true">
                       </div>
 
                       <div class="label-container">
