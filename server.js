@@ -5,6 +5,7 @@ var Good = require('good');
 var Hapi = require('hapi');
 var Hoek = require('hoek');
 var Joi = require('joi');
+var Boom = require('boom');
 var Path = require('path');
 var Signup = require('./lib/signup')(process.env.BASKET_HOST);
 
