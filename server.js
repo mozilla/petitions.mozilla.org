@@ -76,6 +76,35 @@ server.register([
           reply.redirect('/data-retention/thank-you/');
         });
       }
+    }, {
+      method: 'GET',
+      path: '/stay-secure',
+      handler: function(request, reply) {
+        reply.redirect('/stay-secure/');
+      }
+    }, {
+      method: 'POST',
+      path: '/api/stay-secure-signup',
+      config: {
+        validate: {
+          payload: {
+            petition: Joi.string().equal(campaigns),
+            country: Joi.string().equal(Countries),
+            email: Joi.string().email(),
+            'privacy-checkbox': Joi.boolean(),
+            'signup-mailing': Joi.boolean().default(false)
+          }
+        }
+      },
+      handler: function(request, reply) {
+        Signup(request.payload, function(signupError) {
+          if (signupError) {
+            return reply(Boom.wrap(signupError, 500, 'Unable to signup'));
+          }
+
+          reply.redirect('/stay-secure/thank-you/');
+        });
+      }
     }
   ]);
 
