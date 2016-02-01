@@ -16,9 +16,17 @@
 .accordion [data-accordion-role="tabpanel"] ol,
 .accordion [data-accordion-role="tabpanel"] ul {
   margin-top: 4px;
+  padding-left: 10px;
 }
 .accordion [data-accordion-role="tabpanel"] li {
   padding: 0 0 10px 10px;
+}
+.accordion [data-accordion-role="tabpanel"] h5 {
+  margin-top: 30px;
+  text-decoration: underline;
+}
+.accordion [data-accordion-role="tabpanel"] pre {
+  white-space: pre-wrap;
 }
 .accordion.accordion-initialized [data-accordion-role="tab"] {
   padding: 10px 15px 15px 40px;
@@ -60,7 +68,7 @@
   vertical-align: top;
 }
 .accordion.accordion-initialized [data-accordion-role="tabpanel"] {
-  padding: 0 15px 15px 0px;
+  padding: 0 15px 15px 30px;
 }
 .accordion.accordion-initialized [data-accordion-role="tabpanel"][aria-hidden="true"] {
   display: none;
