@@ -10,7 +10,7 @@
   "author": "Mozilla",
   "license": "MPL-2.0",
   "dependencies": {
-    "autoprefixer": "6.0.3",
+    "autoprefixer": "6.5.0",
     "boom": "2.9.0",
     "country-data": "0.0.23",
     "good": "6.4.0",
