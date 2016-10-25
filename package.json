@@ -21,7 +21,7 @@
     "inert": "3.1.0",
     "joi": "6.9.0",
     "postcss": "5.0.8",
-    "request": "2.64.0"
+    "request": "2.76.0"
   },
   "engines": {
     "node": "^4.0.0"
